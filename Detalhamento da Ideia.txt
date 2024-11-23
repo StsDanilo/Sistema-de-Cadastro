@@ -1,0 +1,47 @@
+Interface base:
+	Deseja cadastrar, acessar, ou excluir uma conta?
+	(resposta)
+
+tela de cadastro
+	Nome completo do usuário:
+	(resposta)	//verificar se tem mais de 1 letra e se tem sobrenome
+	
+	Data de nascimento:
+	(resposta)	// verificar se tem mais de 18 anos
+	
+	Email:
+	(resposta)	//verificar se tem @ e .com
+	 
+	CPF:
+	(resposta)	//verificar se são só números e se tem 11 dígitos
+
+	Senha:
+	(resposta)	//verificar se tem 8 dígitos, pelo menos 1 letra maiúscula, 1 minúscula e 1 número
+
+	após digitar a senha dar clear no console e falar "Usuário cadastrado com sucesso."
+	e salvar os dados em um documento de texto
+	
+
+tela de login
+	Nome completo ou CPF:
+	(resposta)
+
+	Senha: 
+	(resposta)
+
+tela após logar:
+	Bem Vindo, primeiro nome!
+	Dados:
+	  Nome Completo
+	  CPF
+	  Data de Nascimento
+	  Email
+	  Id gerado automaticamente (6 dígitos)
+
+tela para excluir 
+	Qual o id da conta que você deseja excluir:
+	(resposta)
+	Para confirmar digite sua senha:
+	(resposta)
+	
+	clear no console e "Conta excluída com sucesso."
