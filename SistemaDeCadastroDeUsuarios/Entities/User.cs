@@ -24,6 +24,17 @@ namespace SistemaDeCadastroDeUsuarios.Entities
 
         }
 
+        public User(string firstName, string fullName, string email, string password, long cpf, int id, DateTime dateOfBirth)
+        {
+            FirstName = firstName;
+            FullName = fullName;
+            Email = email;
+            Password = password;
+            Cpf = cpf;
+            Id = id;
+            DateOfBirth = dateOfBirth;
+        }
+
         public override string ToString()
         {
             return $"{FirstName};{FullName};{Email};{Password};{Cpf};{DateOfBirth.ToString("dd/MM/yyyy")};{Id}";

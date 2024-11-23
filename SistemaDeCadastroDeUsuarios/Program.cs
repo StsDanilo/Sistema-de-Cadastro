@@ -7,23 +7,41 @@ namespace SistemaDeCadastroDeUsuarios
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Deseja cadastrar, acessar ou excluir uma conta?");
-            string command = Console.ReadLine().ToLower();
-
-            switch(command)
+            bool continueExecution = true;
+            while (continueExecution)
             {
-                case "cadastrar":
-                    Actions.Register();
-                    break;
-                case "acessar":
+                Actions.InitializeDatabase();
 
-                    break;
-                case "excluir:":
+                Console.WriteLine("Deseja cadastrar, acessar ou excluir uma conta?");
+                string command = Console.ReadLine().ToLower();
 
-                    break;
-                default:
-                    Console.WriteLine("Comando Inválido");
-                    break;
+                switch (command)
+                {
+                    case "cadastrar":
+                        Actions.Register();
+                        break;
+                    case "acessar":
+                      //  Actions.Access();
+                        break;
+                    case "excluir:":
+
+                        break;
+                    default:
+                        Console.WriteLine("Comando Inválido");
+                        break;
+                }
+
+                Console.WriteLine("Deseja encerrar o atendimento?(s/n)");
+                char simOuNao = char.Parse(Console.ReadLine());
+                if (simOuNao == 'n')
+                {
+                    continueExecution = false;
+                }
+                else
+                {
+                    continueExecution = true;
+                }
+
             }
         }
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SistemaDeCadastroDeUsuarios.Services
 {
@@ -97,6 +98,28 @@ namespace SistemaDeCadastroDeUsuarios.Services
                     Console.WriteLine("Banco de dados não encontrado");
                 }
             } catch (IOException e)
+            {
+                Console.WriteLine("An error occurred");
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        static List<User> RegisteredUsers = new List<User>();
+
+        internal static void InitializeDatabase()
+        {
+            string path = @"E:\.Visual Studio Code Geral\CursoUdemy\C#\SistemaDeCadastroDeUsuarios/database.txt";
+            try
+            {
+                foreach(string s in File.ReadAllLines(path))
+                {
+                    string[] line = s.Split(';');
+                    User user = new User(line[0], line[1], line[2], line[3], long.Parse(line[4]), int.Parse(line[6]) , DateTime.Parse(line[5]));
+                    RegisteredUsers.Add(user);
+                }
+
+                Console.WriteLine(RegisteredUsers.Count());
+            }catch (IOException e)
             {
                 Console.WriteLine("An error occurred");
                 Console.WriteLine(e.Message);
