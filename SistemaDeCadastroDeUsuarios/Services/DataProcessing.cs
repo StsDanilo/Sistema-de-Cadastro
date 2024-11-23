@@ -45,13 +45,8 @@ namespace SistemaDeCadastroDeUsuarios.Services
 
         public static bool CPFVerification(string cpf)
         {
-            //checa se tem 11 dígitos e caso tenha . ou - retira automaticamente 
-            if (cpf.Contains('.') || cpf.Contains("-"))
-            {
-                cpf = cpf.Replace(".", "");
-                cpf = cpf.Replace("-", "");
-            }
-            if (cpf.Length == 11)
+            
+            if (CpfSimplyfier(cpf).ToString().Length == 11)
             {
                 return true;
             }

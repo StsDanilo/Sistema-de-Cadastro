@@ -10,6 +10,8 @@ namespace SistemaDeCadastroDeUsuarios.Services
 {
     static class Actions
     {
+        static List<User> RegisteredUsers = new List<User>();
+
         public static void Register()
         {
             Console.Clear();
@@ -53,7 +55,14 @@ namespace SistemaDeCadastroDeUsuarios.Services
                 Console.WriteLine("CPF:");
                 cpf = Console.ReadLine();
                 passInTest = DataProcessing.CPFVerification(cpf);
-                if (!passInTest) { Console.WriteLine("CPF inválido"); }
+                foreach (User thisUser in RegisteredUsers)
+                {
+                    if (thisUser.Cpf == DataProcessing.CpfSimplyfier(cpf))
+                    {
+                        passInTest = false;
+                    }
+                }
+                if (!passInTest) { Console.WriteLine("CPF inválido ou já cadastrado"); }
             }
             passInTest = false;
 
@@ -91,39 +100,56 @@ namespace SistemaDeCadastroDeUsuarios.Services
             {
                 if (File.Exists(path))
                 {
-                    File.AppendAllText(path, user.ToString());
+                    File.AppendAllText(path, user.ToString() + Environment.NewLine);
                 }
                 else
                 {
                     Console.WriteLine("Banco de dados não encontrado");
                 }
-            } catch (IOException e)
+            }
+            catch (IOException e)
             {
                 Console.WriteLine("An error occurred");
                 Console.WriteLine(e.Message);
             }
         }
 
-        static List<User> RegisteredUsers = new List<User>();
 
         internal static void InitializeDatabase()
         {
             string path = @"E:\.Visual Studio Code Geral\CursoUdemy\C#\SistemaDeCadastroDeUsuarios/database.txt";
             try
             {
-                foreach(string s in File.ReadAllLines(path))
+                foreach (string s in File.ReadAllLines(path))
                 {
                     string[] line = s.Split(';');
-                    User user = new User(line[0], line[1], line[2], line[3], long.Parse(line[4]), int.Parse(line[6]) , DateTime.Parse(line[5]));
+                    User user = new User(line[0], line[1], line[2], line[3], long.Parse(line[4]), int.Parse(line[6]), DateTime.Parse(line[5]));
                     RegisteredUsers.Add(user);
                 }
-
-                Console.WriteLine(RegisteredUsers.Count());
-            }catch (IOException e)
+            }
+            catch (IOException e)
             {
                 Console.WriteLine("An error occurred");
                 Console.WriteLine(e.Message);
             }
         }
+
+        internal static void Access(long cpf, string password)
+        {
+            bool userFounded = false;
+            foreach (User user in RegisteredUsers)
+            {
+                if (cpf == user.Cpf && password == user.Password)
+                {
+                    user.PrintInfo();
+                    userFounded = true;
+                }
+            }
+            if (!userFounded)
+            {
+                Console.WriteLine("Dados incorretos ou usuário inexistente");
+            }
+        }
     }
 }
+

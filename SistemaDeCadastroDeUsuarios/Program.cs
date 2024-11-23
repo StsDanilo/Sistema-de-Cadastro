@@ -12,6 +12,7 @@ namespace SistemaDeCadastroDeUsuarios
             {
                 Actions.InitializeDatabase();
 
+                Console.Clear();
                 Console.WriteLine("Deseja cadastrar, acessar ou excluir uma conta?");
                 string command = Console.ReadLine().ToLower();
 
@@ -21,7 +22,11 @@ namespace SistemaDeCadastroDeUsuarios
                         Actions.Register();
                         break;
                     case "acessar":
-                      //  Actions.Access();
+                        Console.WriteLine("Digite o CPF do usuário da conta que deseja acessar:");
+                        long cpf = long.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite sua senha:");
+                        string password = Console.ReadLine();
+                        Actions.Access(cpf, password);
                         break;
                     case "excluir:":
 
@@ -35,11 +40,11 @@ namespace SistemaDeCadastroDeUsuarios
                 char simOuNao = char.Parse(Console.ReadLine());
                 if (simOuNao == 'n')
                 {
-                    continueExecution = false;
+                    continueExecution = true;
                 }
                 else
                 {
-                    continueExecution = true;
+                    continueExecution = false;
                 }
 
             }

@@ -12,3 +12,4 @@ E:\.Visual Studio Code Geral\CursoUdemy\C#\SistemaDeCadastroDeUsuarios\SistemaDe
 E:\.Visual Studio Code Geral\CursoUdemy\C#\SistemaDeCadastroDeUsuarios\SistemaDeCadastroDeUsuarios\obj\Debug\net8.0\SistemaDeCadastroDeUsuarios.pdb
 E:\.Visual Studio Code Geral\CursoUdemy\C#\SistemaDeCadastroDeUsuarios\SistemaDeCadastroDeUsuarios\obj\Debug\net8.0\SistemaDeCadastroDeUsuarios.genruntimeconfig.cache
 E:\.Visual Studio Code Geral\CursoUdemy\C#\SistemaDeCadastroDeUsuarios\SistemaDeCadastroDeUsuarios\obj\Debug\net8.0\ref\SistemaDeCadastroDeUsuarios.dll
+E:\.Visual Studio Code Geral\CursoUdemy\C#\SistemaDeCadastroDeUsuarios\SistemaDeCadastroDeUsuarios\obj\Debug\net8.0\SistemaDeCadastroDeUsuarios.sourcelink.json

@@ -1,4 +1,5 @@
 ﻿using SistemaDeCadastroDeUsuarios.Services;
+using System.Text;
 
 namespace SistemaDeCadastroDeUsuarios.Entities
 {
@@ -33,6 +34,18 @@ namespace SistemaDeCadastroDeUsuarios.Entities
             Cpf = cpf;
             Id = id;
             DateOfBirth = dateOfBirth;
+        }
+
+        public void PrintInfo()
+        {
+            Console.Clear();
+            Console.WriteLine("Bem vindo " + FirstName);
+            Console.WriteLine();
+            Console.WriteLine("Nome: " +  FullName);
+            Console.WriteLine("Email: " + Email);
+            Console.WriteLine("CPF: " + Cpf);
+            Console.WriteLine("Data de Nascimento: " + DateOfBirth.ToString("dd/MM/yyyy"));
+            Console.WriteLine("ID: " + Id);
         }
 
         public override string ToString()
